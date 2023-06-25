@@ -21,8 +21,8 @@ export class App extends Component {
 
   componentDidMount() {
     const lsContacts = load(KEY_LOCAL_STORAGE)
-    const saveContact = lsContacts.length ? lsContacts : contactsList;
-        
+    const saveContact = lsContacts || contactsList;
+    
     saveContact && this.setState({ contacts: saveContact });
     
   }
