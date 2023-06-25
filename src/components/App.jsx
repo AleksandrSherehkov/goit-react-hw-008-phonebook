@@ -7,17 +7,37 @@ import { ContactForm } from 'components/ContactForm/ContactForm';
 import { Filter } from 'components/Filter/Filter';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Message } from 'components/Message/Message';
+import  contactsList  from 'data/contactsList.json'
+import { save, load } from 'utilities/localStorage'
+
+const KEY_LOCAL_STORAGE = 'Phonebook-contacs';
+
 
 export class App extends Component {
   state = {
-    contacts: [
-      { id: nanoid(), name: 'Rosie Simpson', number: '459-12-56' },
-      { id: nanoid(), name: 'Hermione Kline', number: '443-89-12' },
-      { id: nanoid(), name: 'Eden Clements', number: '645-17-79' },
-      { id: nanoid(), name: 'Annie Copeland', number: '227-91-26' },
-    ],
+    contacts: [],
     filter: '',
   };
+
+  componentDidMount() {
+    const lsContacts = load(KEY_LOCAL_STORAGE)
+    const saveContact = lsContacts.length ? lsContacts : contactsList;
+        
+    saveContact && this.setState({ contacts: saveContact });
+    
+  }
+
+  componentDidUpdate(_, prevState) {
+    const nextContacts = this.state.contacts;
+    const prevContacts = prevState.contacts;
+
+    if (nextContacts !== prevContacts) {
+      save(KEY_LOCAL_STORAGE, nextContacts);
+    }
+  
+}
+
+
 
   createContact = data => {
     const newContact = {

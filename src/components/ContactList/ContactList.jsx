@@ -6,7 +6,7 @@ export const ContactList = ({ contacts, deleteContact }) => {
   return (
     <Box mt={4} flexDirection="column" gridGap={4} as="ul">
       {contacts.map(contact => {
-      return <Contact {...contact} deleteContact={deleteContact} contactId={contact.id} />;
+      return <Contact key={contact.id} {...contact} deleteContact={deleteContact} contactId={contact.id} />;
       })}
     </Box>
   );
