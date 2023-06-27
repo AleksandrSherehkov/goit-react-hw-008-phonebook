@@ -7,11 +7,10 @@ import { ContactForm } from 'components/ContactForm/ContactForm';
 import { Filter } from 'components/Filter/Filter';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Message } from 'components/Message/Message';
-import  contactsList  from 'data/contactsList.json'
-import { save, load } from 'utilities/localStorage'
+import contactsList from 'data/contactsList.json';
+import { save, load } from 'utilities/localStorage';
 
 const KEY_LOCAL_STORAGE = 'Phonebook-contacs';
-
 
 export class App extends Component {
   state = {
@@ -20,24 +19,19 @@ export class App extends Component {
   };
 
   componentDidMount() {
-    const lsContacts = load(KEY_LOCAL_STORAGE)
+    const lsContacts = load(KEY_LOCAL_STORAGE);
     const saveContact = lsContacts || contactsList;
-    
-    saveContact && this.setState({ contacts: saveContact });
-    
+
+    this.setState({ contacts: saveContact });
   }
 
   componentDidUpdate(_, prevState) {
-    const nextContacts = this.state.contacts;
-    const prevContacts = prevState.contacts;
+    const { contacts } = this.state;
 
-    if (nextContacts !== prevContacts) {
-      save(KEY_LOCAL_STORAGE, nextContacts);
+    if (contacts !== prevState.contacts) {
+      save(KEY_LOCAL_STORAGE, contacts);
     }
-  
-}
-
-
+  }
 
   createContact = data => {
     const newContact = {
