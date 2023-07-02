@@ -5,8 +5,8 @@ import { Box } from 'utilities/styles/Box';
 export const ContactList = ({ contacts, deleteContact }) => {
   return (
     <Box mt={4} flexDirection="column" gridGap={4} as="ul">
-      {contacts.map(contact => {
-      return <Contact key={contact.id} {...contact} deleteContact={deleteContact} contactId={contact.id} />;
+      {contacts.map(({ id, ...contact }) => {
+        return <Contact key={id} {...contact} deleteContact={deleteContact} contactId={id} />;
       })}
     </Box>
   );
