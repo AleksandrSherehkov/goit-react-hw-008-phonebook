@@ -1,12 +1,21 @@
 import * as yup from 'yup';
 
-export const contactSchema = yup.object({
-  name: yup.string().required('Обов`язкове поле').max(30, 'ім`я має містити мксимум 30 символів'),
+export const contactSchema = yup.object().shape({
+  name: yup
+    .string()
+    .test('trim', 'The field must not start or end with spaces', value => {
+      if (value) {
+        return value.trim() === value;
+      }
+      return true;
+    })
+    .required('required field')
+    .max(30, 'the name must contain a maximum of 30 characters'),
   number: yup
     .string()
-    .required('Обов`язкове поле')
+    .required('required field')
     .matches(
       /^\d{3}-\d{2}-\d{2}$/,
-      'Номер телефону має містити 7 цифр і мати такий формат xxx-xx-xx'
+      'The phone number must contain 7 digits and have the following format: xxx-xx-xx'
     ),
 });

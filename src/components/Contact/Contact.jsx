@@ -1,11 +1,10 @@
-import PropTypes from 'prop-types';
 import { FaTrash } from 'react-icons/fa';
 import { FcCellPhone } from 'react-icons/fc';
 import { Box } from 'utilities/styles/Box';
 import { Text } from 'utilities/styles/Text';
 import { IconUser, ButtonTrash } from 'components/Contact/Contact.styled';
 
-export const Contact = ({ name, number, deleteContact, contactId }) => {
+export const Contact = ({ contact: { id, name, number }, onRemoveContact }) => {
   return (
     <Box justifyContent="space-around" width="650px" bg="white" as="li">
       <Box gridGap={4} justifyContent="flex-start" width="200px">
@@ -20,16 +19,9 @@ export const Contact = ({ name, number, deleteContact, contactId }) => {
           {number}
         </Text>
       </Box>
-      <ButtonTrash as="button" type="button" onClick={() => deleteContact(contactId)}>
+      <ButtonTrash as="button" type="button" onClick={() => onRemoveContact(id)}>
         <FaTrash />
       </ButtonTrash>
     </Box>
   );
-};
-
-Contact.propTypes = {
-  contactId: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
-  deleteContact: PropTypes.func.isRequired,
 };

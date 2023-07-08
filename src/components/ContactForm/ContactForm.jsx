@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import { Formik } from 'formik';
 import { BsFillPersonPlusFill } from 'react-icons/bs';
 import { Box } from 'utilities/styles/Box';
@@ -7,16 +5,33 @@ import { Text } from 'utilities/styles/Text';
 import { ButtonStyled, FieldStyled, FormStyled } from 'components/ContactForm/ContactForm.styled';
 import { FormError } from 'components/FormError/FormError';
 import { contactSchema } from 'utilities/validationSchema';
+import { useDispatch, useSelector } from 'react-redux';
+import { nanoid } from '@reduxjs/toolkit';
+import { addContact } from 'redux/contactsSlice';
+import { Report } from 'notiflix';
 
-export const ContactForm = ({ createContact }) => {
-  const hendleSubmit = (values, { resetForm }) => {
-    createContact(values);
-    resetForm();
-  };
+export const ContactForm = () => {
+  const dispatch = useDispatch();
+  const contacts = useSelector(state => state.contacts.contacts);
 
   const initialValues = {
     name: '',
     number: '',
+  };
+
+  const hendleSubmit = (values, { resetForm }) => {
+    const { name, number } = values;
+
+    const newContact = {
+      id: nanoid(),
+      name,
+      number,
+    };
+
+    contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase())
+      ? Report.warning(`${name}`, 'This user is already in the contact list.', 'OK')
+      : dispatch(addContact(newContact));
+    resetForm();
   };
 
   return (
@@ -53,8 +68,4 @@ export const ContactForm = ({ createContact }) => {
       </FormStyled>
     </Formik>
   );
-};
-
-ContactForm.propTypes = {
-  createContact: PropTypes.func.isRequired,
 };
