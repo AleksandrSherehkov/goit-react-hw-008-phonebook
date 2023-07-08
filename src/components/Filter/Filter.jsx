@@ -11,7 +11,7 @@ export const Filter = () => {
   const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
 
-  const changeFieldFilter = e => dispatch(setFilter(e.currentTarget.value));
+  const changeFieldFilter = ({ currentTarget: { value } }) => dispatch(setFilter(value));
 
   return (
     <Box my={4} alignItems="flex-start" flexDirection="column" as="label">

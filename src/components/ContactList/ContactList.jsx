@@ -10,8 +10,8 @@ export const ContactList = () => {
   const contacts = useSelector(selectContacts);
   const filter = useSelector(selectFilter);
 
-  const filteredContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().startsWith(filter.toLowerCase())
+  const filteredContacts = contacts.filter(({ name }) =>
+    name.toLowerCase().startsWith(filter.toLowerCase())
   );
 
   const handleRemoveContact = contactId => {

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { FaTrash } from 'react-icons/fa';
 import { FcCellPhone } from 'react-icons/fc';
 
@@ -25,4 +26,8 @@ export const Contact = ({ contact: { id, name, number }, onRemoveContact }) => {
       </ButtonTrash>
     </Box>
   );
+};
+
+Contact.propTypes = {
+  onRemoveContact: PropTypes.func.isRequired,
 };
