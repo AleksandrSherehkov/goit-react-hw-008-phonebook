@@ -1,5 +1,6 @@
 import { FaTrash } from 'react-icons/fa';
 import { FcCellPhone } from 'react-icons/fc';
+
 import { Box } from 'utilities/styles/Box';
 import { Text } from 'utilities/styles/Text';
 import { IconUser, ButtonTrash } from 'components/Contact/Contact.styled';
