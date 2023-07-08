@@ -1,8 +1,10 @@
+import { useDispatch, useSelector } from 'react-redux';
+
 import { Box } from 'utilities/styles/Box';
 import { Text } from 'utilities/styles/Text';
+
 import { InputStyled } from 'components/Filter/Filter.styled';
 import { setFilter } from 'redux/filterSlice';
-import { useDispatch, useSelector } from 'react-redux';
 import { selectFilter } from 'redux/selectors';
 
 export const Filter = () => {
