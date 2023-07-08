@@ -1,14 +1,15 @@
 import { Formik } from 'formik';
 import { BsFillPersonPlusFill } from 'react-icons/bs';
+import { useDispatch, useSelector } from 'react-redux';
+import { nanoid } from '@reduxjs/toolkit';
+import { Report } from 'notiflix';
+
+import { addContact } from 'redux/contactsSlice';
 import { Box } from 'utilities/styles/Box';
 import { Text } from 'utilities/styles/Text';
 import { ButtonStyled, FieldStyled, FormStyled } from 'components/ContactForm/ContactForm.styled';
 import { FormError } from 'components/FormError/FormError';
 import { contactSchema } from 'utilities/validationSchema';
-import { useDispatch, useSelector } from 'react-redux';
-import { nanoid } from '@reduxjs/toolkit';
-import { addContact } from 'redux/contactsSlice';
-import { Report } from 'notiflix';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
