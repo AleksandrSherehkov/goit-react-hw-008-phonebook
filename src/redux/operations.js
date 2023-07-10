@@ -37,5 +37,13 @@ export const deleteContactThunk = createAsyncThunk(
     } catch (error) {
       return rejectWithValue(error.message);
     }
+  },
+  {
+    condition: (_, { getState }) => {
+      const loading = getState().contacts.loading;
+      if (loading) {
+        return false;
+      }
+    },
   }
 );
