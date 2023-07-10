@@ -15,7 +15,7 @@ export const contactSchema = yup.object().shape({
     .string()
     .required('required field')
     .matches(
-      /^\d{3}-\d{2}-\d{2}$/,
-      'The phone number must contain 7 digits and have the following format: xxx-xx-xx'
+      /^\d{3}-\d{3}-\d{4}$/,
+      'The phone number must contain 7 digits and have the following format: xxx-xxx-xxxx'
     ),
 });
