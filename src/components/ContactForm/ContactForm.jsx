@@ -4,13 +4,13 @@ import { BsFillPersonPlusFill } from 'react-icons/bs';
 
 import { Report } from 'notiflix';
 
-import { addContact } from 'redux/contactsSlice';
 import { contactSchema } from 'utilities/validationSchema';
 
 import { Box } from 'utilities/styles/Box';
 import { Text } from 'utilities/styles/Text';
 import { ButtonStyled, FieldStyled, FormStyled } from 'components/ContactForm/ContactForm.styled';
 import { FormError } from 'components/FormError/FormError';
+import { addContactThunk } from 'redux/operations';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ export const ContactForm = () => {
   const checkAndAddContact = value => {
     contacts.some(contact => contact.name.toLowerCase() === value.name.toLowerCase())
       ? Report.warning(`${value.name}`, 'This user is already in the contact list.', 'OK')
-      : dispatch(addContact(value));
+      : dispatch(addContactThunk(value));
   };
 
   return (

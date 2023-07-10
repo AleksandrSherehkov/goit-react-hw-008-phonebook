@@ -1,4 +1,4 @@
-import { createSlice, nanoid } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { addContactThunk, deleteContactThunk, fetchContactsThunk } from './operations';
 
 const initialState = {
@@ -6,11 +6,11 @@ const initialState = {
   loading: false,
   error: '',
 };
-const rejected = (state, action) => {
+const rejected = (state, { payload }) => {
   state.loading = false;
-  state.error = action.payload;
+  state.error = payload;
 };
-const pending = (state, action) => {
+const pending = state => {
   state.loading = true;
   state.error = '';
 };
@@ -18,34 +18,19 @@ const pending = (state, action) => {
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
-  reducers: {
-    addContact: {
-      reducer(state, action) {
-        state.contacts.push(action.payload);
-      },
-      prepare({ name, number }) {
-        return {
-          payload: {
-            id: nanoid(),
-            name,
-            number,
-          },
-        };
-      },
-    },
-  },
+  reducers: {},
   extraReducers: builder => {
     builder
-      .addCase(fetchContactsThunk.fulfilled, (state, action) => {
-        state.contacts = action.payload;
+      .addCase(fetchContactsThunk.fulfilled, (state, { payload }) => {
+        state.contacts = payload;
         state.loading = false;
       })
-      .addCase(addContactThunk.fulfilled, (state, action) => {
-        state.contacts.push(action.payload);
+      .addCase(addContactThunk.fulfilled, (state, { payload }) => {
+        state.contacts.push(payload);
         state.loading = false;
       })
-      .addCase(deleteContactThunk.fulfilled, (state, action) => {
-        state.contacts = state.contacts.filter(contact => contact.id !== action.payload);
+      .addCase(deleteContactThunk.fulfilled, (state, { payload }) => {
+        state.contacts = state.contacts.filter(contact => contact.id !== payload);
         state.loading = false;
       })
       .addMatcher(action => action.type.endsWith('/pending'), pending)
