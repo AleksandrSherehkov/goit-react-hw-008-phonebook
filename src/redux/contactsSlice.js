@@ -34,23 +34,22 @@ const contactsSlice = createSlice({
       },
     },
   },
-  extraReducers: {
-    [fetchContactsThunk.pending]: pending,
-    [deleteContactThunk.pending]: pending,
-    [fetchContactsThunk.fulfilled]: (state, action) => {
-      state.contacts = action.payload;
-      state.loading = false;
-    },
-    [addContactThunk.fulfilled]: (state, action) => {
-      state.contacts.push(action.payload);
-      state.loading = false;
-    },
-    [deleteContactThunk.fulfilled]: (state, action) => {
-      state.contacts = state.contacts.filter(contact => contact.id !== action.payload);
-      state.loading = false;
-    },
-    [fetchContactsThunk.rejected]: rejected,
-    [deleteContactThunk.rejected]: rejected,
+  extraReducers: builder => {
+    builder
+      .addCase(fetchContactsThunk.fulfilled, (state, action) => {
+        state.contacts = action.payload;
+        state.loading = false;
+      })
+      .addCase(addContactThunk.fulfilled, (state, action) => {
+        state.contacts.push(action.payload);
+        state.loading = false;
+      })
+      .addCase(deleteContactThunk.fulfilled, (state, action) => {
+        state.contacts = state.contacts.filter(contact => contact.id !== action.payload);
+        state.loading = false;
+      })
+      .addMatcher(action => action.type.endsWith('/pending'), pending)
+      .addMatcher(action => action.type.endsWith('/rejected'), rejected);
   },
 });
 
