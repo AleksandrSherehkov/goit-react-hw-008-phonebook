@@ -10,7 +10,7 @@ import { Box } from 'utilities/styles/Box';
 import { Text } from 'utilities/styles/Text';
 import { ButtonStyled, FieldStyled, FormStyled } from 'components/ContactForm/ContactForm.styled';
 import { FormError } from 'components/FormError/FormError';
-import { addContactThunk } from 'redux/operations';
+import { addContactThunk, fetchContactsThunk } from 'redux/operations';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -30,7 +30,9 @@ export const ContactForm = () => {
   const checkAndAddContact = value => {
     contacts.some(contact => contact.name.toLowerCase() === value.name.toLowerCase())
       ? Report.warning(`${value.name}`, 'This user is already in the contact list.', 'OK')
-      : dispatch(addContactThunk(value));
+      : dispatch(addContactThunk(value))
+          .unwrap()
+          .then(() => dispatch(fetchContactsThunk()));
   };
 
   return (
