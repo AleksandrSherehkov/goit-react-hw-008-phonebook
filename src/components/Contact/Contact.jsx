@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import { FaTrash } from 'react-icons/fa';
 import { FcCellPhone } from 'react-icons/fc';
 
-import { Box } from 'service/styles/Box';
-import { Text } from 'service/styles/Text';
+import { Box } from 'services/styles/Box';
+import { Text } from 'services/styles/Text';
 import { IconUser, ButtonTrash } from 'components/Contact/Contact.styled';
 
 export const Contact = ({ contact: { id, name, number }, onRemoveContact }) => {

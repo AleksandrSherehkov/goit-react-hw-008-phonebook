@@ -6,7 +6,6 @@ import { logOut } from 'redux/auth/operations';
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const { user } = useAuth();
-  console.log(`user:`, user);
 
   return (
     <div>

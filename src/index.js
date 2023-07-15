@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import { ThemeProvider } from 'styled-components';
-import { theme } from 'service/styles/theme';
+import { theme } from 'services/styles/theme';
 import { App } from 'components/App';
 import './index.css';
 import { persistor, store } from 'redux/store';

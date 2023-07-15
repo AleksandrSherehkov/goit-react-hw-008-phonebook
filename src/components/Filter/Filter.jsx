@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Box } from 'service/styles/Box';
-import { Text } from 'service/styles/Text';
+import { Box } from 'services/styles/Box';
+import { Text } from 'services/styles/Text';
 
 import { InputStyled } from 'components/Filter/Filter.styled';
 

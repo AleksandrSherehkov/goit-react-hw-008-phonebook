@@ -4,10 +4,10 @@ import { BsFillPersonPlusFill } from 'react-icons/bs';
 
 import { Report } from 'notiflix';
 
-import { contactSchema } from 'service/validation/validationSchema';
+import { contactSchema } from 'services/validation/validationSchema';
 
-import { Box } from 'service/styles/Box';
-import { Text } from 'service/styles/Text';
+import { Box } from 'services/styles/Box';
+import { Text } from 'services/styles/Text';
 import { ButtonStyled, FieldStyled, FormStyled } from 'components/ContactForm/ContactForm.styled';
 import { FormError } from 'components/FormError/FormError';
 import { addContactThunk, fetchContactsThunk } from 'redux/contacts/operations';

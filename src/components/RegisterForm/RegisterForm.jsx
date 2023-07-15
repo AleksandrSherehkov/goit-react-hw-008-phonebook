@@ -5,9 +5,9 @@ import { Formik } from 'formik';
 import { BsFillPersonPlusFill } from 'react-icons/bs';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
-import { Box } from 'service/styles/Box';
-import { Text } from 'service/styles/Text';
-import { registerSchema } from 'service/validation/validationRegisterSchema';
+import { Box } from 'services/styles/Box';
+import { Text } from 'services/styles/Text';
+import { registerSchema } from 'services/validation/validationRegisterSchema';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();

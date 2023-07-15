@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { clearToken, instance, setToken } from 'service/requests/contactsApi';
+import { clearToken, instance, setToken } from 'services/requests/contactsApi';
 
 export const register = createAsyncThunk(
   'auth/register',

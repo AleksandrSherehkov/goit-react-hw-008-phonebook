@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { Box } from 'service/styles/Box';
+import { Box } from 'services/styles/Box';
 
 export const AuthNav = () => {
   return (

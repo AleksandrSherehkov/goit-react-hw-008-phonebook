@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectFilteredContacts } from 'redux/contacts/selectors';
 
 import { Contact } from 'components/Contact/Contact';
-import { Box } from 'service/styles/Box';
+import { Box } from 'services/styles/Box';
 import { deleteContactThunk, fetchContactsThunk } from 'redux/contacts/operations';
 
 export const ContactList = () => {
