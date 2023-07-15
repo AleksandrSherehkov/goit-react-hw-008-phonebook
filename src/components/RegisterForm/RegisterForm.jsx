@@ -3,11 +3,14 @@ import { FormError } from 'components/FormError/FormError';
 import { Section } from 'components/Section/Section';
 import { Formik } from 'formik';
 import { BsFillPersonPlusFill } from 'react-icons/bs';
+import { useDispatch } from 'react-redux';
+import { register } from 'redux/auth/operations';
 import { Box } from 'service/styles/Box';
 import { Text } from 'service/styles/Text';
 import { registerSchema } from 'service/validation/validationRegisterSchema';
 
 export const RegisterForm = () => {
+  const dispatch = useDispatch();
   const initialValues = {
     name: '',
     email: '',
@@ -15,6 +18,7 @@ export const RegisterForm = () => {
   };
 
   const hendleSubmit = (value, { resetForm }) => {
+    dispatch(register(value));
     console.log(value);
     resetForm();
   };

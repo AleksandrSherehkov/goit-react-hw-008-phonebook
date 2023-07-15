@@ -1,17 +1,15 @@
-import { useDispatch } from 'react-redux';
 import { GlobalStyle } from 'service/styles/GlobalStyle';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { Filter } from 'components/Filter/Filter';
-import { useEffect } from 'react';
-import { fetchContactsThunk } from 'redux/contacts/operations';
+
 import { LoginForm } from './LoginForm/LoginForm';
 import { RegisterForm } from './RegisterForm/RegisterForm';
 
 export const App = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchContactsThunk());
-  }, [dispatch]);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(fetchContactsThunk());
+  // }, [dispatch]);
 
   return (
     <>
