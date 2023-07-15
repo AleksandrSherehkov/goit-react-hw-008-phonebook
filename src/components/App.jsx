@@ -6,14 +6,22 @@ import { RegisterPage } from 'pages/RegisterPage/RegisterPage';
 import { LoginPage } from 'pages/LoginPage/LoginPage';
 import { ContactsPage } from 'pages/ContactsPage/ContactsPage';
 import { Layout } from './Layout/Layout';
+import { useAuth } from 'hooks/useAuth';
+import { useEffect } from 'react';
+import { refreshUser } from 'redux/auth/operations';
+import { useDispatch } from 'react-redux';
 
 export const App = () => {
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(fetchContactsThunk());
-  // }, [dispatch]);
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
 
-  return (
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
     <>
       <Routes>
         <Route path="/" element={<Layout />}>

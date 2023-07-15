@@ -24,7 +24,7 @@ export const ContactForm = () => {
 
   const hendleSubmit = (value, { resetForm }) => {
     checkAndAddContact(value);
-    console.log(value);
+
     resetForm();
   };
 
