@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import { Box } from 'utilities/styles/Box';
-import { Text } from 'utilities/styles/Text';
+import { Box } from 'service/styles/Box';
+import { Text } from 'service/styles/Text';
 
 export const Section = ({ title, children }) => {
   return (

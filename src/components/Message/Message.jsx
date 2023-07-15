@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Text } from 'utilities/styles/Text';
+import { Text } from 'service/styles/Text';
 
 export const Message = ({ text }) => {
   return <Text>{text}</Text>;

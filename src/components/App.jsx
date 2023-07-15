@@ -1,14 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/selectors';
 
-import { GlobalStyle } from 'utilities/styles/GlobalStyle';
+import { GlobalStyle } from 'service/styles/GlobalStyle';
 import { Section } from 'components/Section/Section';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { Filter } from 'components/Filter/Filter';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Message } from 'components/Message/Message';
 import { useEffect } from 'react';
-import { fetchContactsThunk } from 'redux/operations';
+import { fetchContactsThunk } from 'redux/Contacts/operations';
 
 export const App = () => {
   const contacts = useSelector(selectContacts);
