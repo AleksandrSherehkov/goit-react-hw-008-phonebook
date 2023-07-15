@@ -3,7 +3,7 @@ import { selectFilteredContacts } from 'redux/selectors';
 
 import { Contact } from 'components/Contact/Contact';
 import { Box } from 'service/styles/Box';
-import { deleteContactThunk, fetchContactsThunk } from 'redux/contact/operations';
+import { deleteContactThunk, fetchContactsThunk } from 'redux/contacts/operations';
 
 export const ContactList = () => {
   const dispatch = useDispatch();

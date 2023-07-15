@@ -10,7 +10,7 @@ import { Box } from 'service/styles/Box';
 import { Text } from 'service/styles/Text';
 import { ButtonStyled, FieldStyled, FormStyled } from 'components/ContactForm/ContactForm.styled';
 import { FormError } from 'components/FormError/FormError';
-import { addContactThunk, fetchContactsThunk } from 'redux/contact/operations';
+import { addContactThunk, fetchContactsThunk } from 'redux/contacts/operations';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
