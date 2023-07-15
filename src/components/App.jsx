@@ -8,7 +8,7 @@ import { Filter } from 'components/Filter/Filter';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Message } from 'components/Message/Message';
 import { useEffect } from 'react';
-import { fetchContactsThunk } from 'redux/Contacts/operations';
+import { fetchContactsThunk } from 'redux/contacts/operations';
 
 export const App = () => {
   const contacts = useSelector(selectContacts);
@@ -27,6 +27,14 @@ export const App = () => {
         {contacts.length > 0 ? <ContactList /> : <Message text="Contact list is empty." />}
       </Section>
       <GlobalStyle />
+
+      {/* <Routes>
+        <Route path="/" element={<Layout />} />
+        <Route index element={<HomePage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/contacts" element={<ContactsPage />} />
+      </Routes> */}
     </>
   );
 };
