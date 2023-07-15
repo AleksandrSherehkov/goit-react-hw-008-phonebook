@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/contacts/selectors';
 
 import { GlobalStyle } from 'service/styles/GlobalStyle';
 import { Section } from 'components/Section/Section';

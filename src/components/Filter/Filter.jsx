@@ -5,7 +5,7 @@ import { Text } from 'service/styles/Text';
 
 import { InputStyled } from 'components/Filter/Filter.styled';
 
-import { selectFilter } from 'redux/selectors';
+import { selectFilter } from 'redux/contacts/selectors';
 import { setFilter } from 'redux/contacts/contactsSlice';
 
 export const Filter = () => {

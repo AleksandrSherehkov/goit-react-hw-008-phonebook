@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFilteredContacts } from 'redux/selectors';
+import { selectFilteredContacts } from 'redux/contacts/selectors';
 
 import { Contact } from 'components/Contact/Contact';
 import { Box } from 'service/styles/Box';
