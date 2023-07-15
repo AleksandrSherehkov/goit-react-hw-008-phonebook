@@ -8,7 +8,7 @@ import { Filter } from 'components/Filter/Filter';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Message } from 'components/Message/Message';
 import { useEffect } from 'react';
-import { fetchContactsThunk } from 'redux/contacts/operations';
+import { fetchContactsThunk } from 'redux/contact/operations';
 
 export const App = () => {
   const contacts = useSelector(selectContacts);
