@@ -6,15 +6,19 @@ import { Box } from 'service/styles/Box';
 import { Text } from 'service/styles/Text';
 import { loginSchema } from 'service/validation/validationLoginSchema';
 import { Section } from 'components/Section/Section';
+import { useDispatch } from 'react-redux';
+import { logIn } from 'redux/auth/operations';
 
 export const LoginForm = () => {
+  const dispatch = useDispatch();
+
   const initialValues = {
     email: '',
     password: '',
   };
 
   const hendleSubmit = (value, { resetForm }) => {
-    console.log(value);
+    dispatch(logIn(value));
     resetForm();
   };
   return (

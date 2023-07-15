@@ -19,7 +19,7 @@ export const RegisterForm = () => {
 
   const hendleSubmit = (value, { resetForm }) => {
     dispatch(register(value));
-    console.log(value);
+
     resetForm();
   };
   return (
@@ -63,7 +63,7 @@ export const RegisterForm = () => {
           </Box>
           <ButtonStyled type="submit">
             <BsFillPersonPlusFill size={20} />
-            Login
+            Registration
           </ButtonStyled>
         </FormStyled>
       </Formik>
