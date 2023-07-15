@@ -5,6 +5,7 @@ const initialState = {
   contacts: [],
   loading: false,
   error: '',
+  filter: '',
 };
 const rejected = (state, { payload }) => {
   state.loading = false;
@@ -18,7 +19,11 @@ const pending = state => {
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
-  reducers: {},
+  reducers: {
+    setFilter: (state, action) => {
+      state.filter = action.payload;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchContactsThunk.fulfilled, (state, { payload }) => {
@@ -36,5 +41,5 @@ const contactsSlice = createSlice({
   },
 });
 
-export const { addContact } = contactsSlice.actions;
+export const { setFilter } = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;

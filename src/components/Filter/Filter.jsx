@@ -4,8 +4,9 @@ import { Box } from 'service/styles/Box';
 import { Text } from 'service/styles/Text';
 
 import { InputStyled } from 'components/Filter/Filter.styled';
-import { setFilter } from 'redux/filterSlice';
+
 import { selectFilter } from 'redux/selectors';
+import { setFilter } from 'redux/Contacts/contactsSlice';
 
 export const Filter = () => {
   const dispatch = useDispatch();
