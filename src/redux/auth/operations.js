@@ -45,7 +45,7 @@ export const refreshUser = createAsyncThunk(
     if (persistedToken === null) {
       return rejectWithValue('Unable to fetch user');
     }
-    console.log(persistedToken);
+
     setToken(persistedToken);
     try {
       const { data } = await instance.get('/users/current');
