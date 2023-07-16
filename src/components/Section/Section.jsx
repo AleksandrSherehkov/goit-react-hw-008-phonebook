@@ -5,7 +5,7 @@ import { Text } from 'services/styles/Text';
 export const Section = ({ title, children }) => {
   return (
     <Box
-      m="30px auto"
+      m="5px auto"
       py={4}
       width="700px"
       flexDirection="column"
@@ -14,11 +14,7 @@ export const Section = ({ title, children }) => {
       bg="background"
       as="section"
     >
-      {title && (
-        <Text color="black" fontWeight="bold" as="h2">
-          {title}
-        </Text>
-      )}
+      {title && <Text as="h2">{title}</Text>}
       {children}
     </Box>
   );

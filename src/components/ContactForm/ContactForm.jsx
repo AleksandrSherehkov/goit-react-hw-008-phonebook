@@ -37,7 +37,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <Section title="Phonebook">
+    <Section title="Contacts">
       <Formik
         initialValues={initialValues}
         validationSchema={contactSchema}

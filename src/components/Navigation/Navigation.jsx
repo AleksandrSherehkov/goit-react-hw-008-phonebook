@@ -1,14 +1,16 @@
 import { useAuth } from 'hooks/useAuth';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+
+import { CustomLink } from './Navigation.styled';
+import { Box } from 'services/styles/Box';
 
 export const Navigation = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <div mr={2}>
-      <NavLink to="/">Home</NavLink>
-      {isLoggedIn && <NavLink to="/contacts">Contacts</NavLink>}
-    </div>
+    <Box gridGap={4}>
+      <CustomLink to="/">Home</CustomLink>
+      {isLoggedIn && <CustomLink to="/contacts">Contacts</CustomLink>}
+    </Box>
   );
 };

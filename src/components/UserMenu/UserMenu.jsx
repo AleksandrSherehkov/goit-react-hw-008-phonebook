@@ -2,18 +2,22 @@ import { useAuth } from 'hooks/useAuth';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/operations';
+import { Box } from 'services/styles/Box';
+import { ButtonLogOutStyled, NameStyled, SpanStyled } from './UserMenu.styled';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const { user } = useAuth();
 
   return (
-    <div>
-      <p>Welcome, {user?.name}</p>
+    <Box gridGap={4}>
+      <Box flexDirection="column">
+        <SpanStyled>Welcome,</SpanStyled> <NameStyled>{user?.name}</NameStyled>
+      </Box>
 
-      <button type="button" onClick={() => dispatch(logOut())}>
+      <ButtonLogOutStyled type="button" onClick={() => dispatch(logOut())}>
         Logout
-      </button>
-    </div>
+      </ButtonLogOutStyled>
+    </Box>
   );
 };

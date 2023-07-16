@@ -1,6 +1,6 @@
 import { Formik } from 'formik';
 import { BsFillPersonPlusFill } from 'react-icons/bs';
-import { ButtonStyled, FieldStyled, FormStyled } from 'components/ContactForm/ContactForm.styled';
+import { FieldStyled, FormStyled } from 'components/ContactForm/ContactForm.styled';
 import { FormError } from 'components/FormError/FormError';
 import { Box } from 'services/styles/Box';
 import { Text } from 'services/styles/Text';
@@ -8,6 +8,7 @@ import { loginSchema } from 'services/validation/validationLoginSchema';
 import { Section } from 'components/Section/Section';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
+import { ButtonLoginStyled } from './LoginFrom.styled';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -49,10 +50,10 @@ export const LoginForm = () => {
             />
             <FormError name="password" />
           </Box>
-          <ButtonStyled type="submit">
+          <ButtonLoginStyled type="submit">
             <BsFillPersonPlusFill size={20} />
             Login
-          </ButtonStyled>
+          </ButtonLoginStyled>
         </FormStyled>
       </Formik>
     </Section>

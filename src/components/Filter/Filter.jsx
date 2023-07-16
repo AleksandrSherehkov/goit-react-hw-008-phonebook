@@ -19,7 +19,7 @@ export const Filter = () => {
   const changeFieldFilter = ({ currentTarget: { value } }) => dispatch(setFilter(value));
 
   return (
-    <Section title="Contacts">
+    <Section title="Contacts List">
       <Box my={4} alignItems="flex-start" flexDirection="column" as="label">
         <Text fontSize="m" color="black">
           Find contacts by name
