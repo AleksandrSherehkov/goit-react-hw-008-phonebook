@@ -18,3 +18,5 @@ export const ContactsPage = () => {
     </>
   );
 };
+
+export default ContactsPage;
