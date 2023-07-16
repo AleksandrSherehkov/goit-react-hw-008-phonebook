@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/operations';
 import { Box } from 'services/styles/Box';
 import { ButtonLogOutStyled, NameStyled, SpanStyled } from './UserMenu.styled';
+import { FcButtingIn } from 'react-icons/fc';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ export const UserMenu = () => {
       </Box>
 
       <ButtonLogOutStyled type="button" onClick={() => dispatch(logOut())}>
+        <FcButtingIn size={18} />
         Logout
       </ButtonLogOutStyled>
     </Box>

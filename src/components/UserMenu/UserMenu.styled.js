@@ -2,7 +2,8 @@ import { ButtonStyled } from 'components/ContactForm/ContactForm.styled';
 import styled from 'styled-components';
 
 export const ButtonLogOutStyled = styled(ButtonStyled)`
-  width: 70px;
+  width: 80px;
+  padding: 3px 3px;
 `;
 
 export const NameStyled = styled.span`
