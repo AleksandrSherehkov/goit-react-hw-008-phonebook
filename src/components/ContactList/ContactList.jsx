@@ -3,16 +3,14 @@ import { selectFilteredContacts } from 'redux/contacts/selectors';
 
 import { Contact } from 'components/Contact/Contact';
 import { Box } from 'services/styles/Box';
-import { deleteContactThunk, fetchContactsThunk } from 'redux/contacts/operations';
+import { deleteContactThunk } from 'redux/contacts/operations';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
   const filteredContacts = useSelector(selectFilteredContacts);
 
   const handleRemoveContact = contactId => {
-    dispatch(deleteContactThunk(contactId))
-      .unwrap()
-      .then(() => dispatch(fetchContactsThunk()));
+    dispatch(deleteContactThunk(contactId));
   };
 
   return (

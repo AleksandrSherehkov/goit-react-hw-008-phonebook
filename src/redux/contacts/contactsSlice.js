@@ -33,9 +33,7 @@ const contactsSlice = createSlice({
       .addCase(addContactThunk.fulfilled, (state, { payload }) => {
         state.loading = false;
       })
-      .addCase(deleteContactThunk.fulfilled, (state, { payload }) => {
-        state.loading = false;
-      })
+
       .addMatcher(action => action.type.endsWith('/pending'), pending)
       .addMatcher(action => action.type.endsWith('/rejected'), rejected);
   },
